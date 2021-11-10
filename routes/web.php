@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('Pages/welcome');
 });
-Route::get('/login', [LocalAuthController::class, "RegisterIndex"]);
-Route::get('/register', [LocalAuthController::class, "LoginIndex"]);
+Route::get('/login', [LocalAuthController::class, "LoginIndex"]);
+Route::get('/register', [LocalAuthController::class, "RegisterIndex"]);
 
 Route::get('/auth/google/redirect', [GoogleAuthController::class, "redirectToGoogle"]);
 Route::get('/auth/google/callback', [GoogleAuthController::class, "handleGoogleCallback"]);
