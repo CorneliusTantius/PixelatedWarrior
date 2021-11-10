@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\GoogleAuthController;
+use App\Http\Controllers\Auth\GoogleAuthController;
+use App\Http\Controllers\Auth\LocalAuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,13 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Pages/welcome');
 });
-Route::get('/login', function () {
-    return view('Auth/Login');
-});
-Route::get('/register', function () {
-    return view('Auth/Regist');
-});
-Route::get('/api/auth/google/redirect', [GoogleAuthController::class, "redirectToGoogle"]);
-Route::get('/api/auth/google/callback', [GoogleAuthController::class, "handleGoogleCallback"]);
+Route::get('/login', [LocalAuthController::class, "RegisterIndex"]);
+Route::get('/register', [LocalAuthController::class, "LoginIndex"]);
+
+Route::get('/auth/google/redirect', [GoogleAuthController::class, "redirectToGoogle"]);
+Route::get('/auth/google/callback', [GoogleAuthController::class, "handleGoogleCallback"]);
