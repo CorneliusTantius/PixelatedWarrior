@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('Pages/welcome');
+    return view('Pages/home', ["title"=>"Home"]);
 });
 Route::get('/login', [LocalAuthController::class, "LoginIndex"]);
 Route::get('/register', [LocalAuthController::class, "RegisterIndex"]);
