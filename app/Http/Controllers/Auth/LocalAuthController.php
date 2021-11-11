@@ -52,4 +52,9 @@ class LocalAuthController extends Controller
 
         return redirect()->to('/login');
     }
+
+    public static function Logout(Request $request){
+        Auth::logout();
+        return redirect('/');
+    }
 }

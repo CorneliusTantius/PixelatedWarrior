@@ -18,7 +18,11 @@
     <title>PW: {{$title}}</title>
 </head>
 <body>
-    @include('Components.header')
+    @if (Auth::check())
+        @include('Components.headeron')
+    @else
+        @include('Components.headeroff')
+    @endif
     <div class="container content-container">
         @yield('content')
     </div>
