@@ -1,16 +1,22 @@
 @extends('Layouts.main')
 @section('content')
 <div class="form-signin">
-    <form>
+    <form method="POST" action="/auth/local/login">
+        @csrf
         {{-- <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> --}}
         <h1 class="h3 mb-3 fw-normal">Login</h1>
     
         <div class="form-floating">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="name@example.com" required value="{{ old('email') }}">
             <label for="floatingInput">Email address</label>
+            @error('email')
+                <div class="invalid-feedback error-message">
+                    {{ $message }}
+                </div>
+            @enderror
         </div>
         <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <input type="password" class="form-control" id="password" placeholder="Password" name="password" required value="{{ old('password') }}">
             <label for="floatingPassword">Password</label>
         </div>
     

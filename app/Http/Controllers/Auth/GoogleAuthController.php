@@ -8,7 +8,6 @@ use App\Models\User;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
-use SebastianBergmann\Environment\Console;
 
 
 class GoogleAuthController extends Controller
@@ -35,9 +34,10 @@ class GoogleAuthController extends Controller
             }else{
                 $newUser = User::create([
                     'name' => $user->name,
+                    'age' => 0,
                     'email' => $user->email,
                     'google_id'=> $user->id,
-                    'password'=> "password",
+                    'password'=> bcrypt("password"),
                     'email_verified_at'=> now()
                 ]);
                 // dd($newUser);

@@ -8,8 +8,8 @@
             most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system,
             extensive prebuilt components, and powerful JavaScript plugins.</p>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>
-            <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>
+            <a type="button" class="btn btn-primary btn-lg px-4 gap-3" href="/login">Login</a>
+            <a type="button" class="btn btn-outline-secondary btn-lg px-4" href="/register">Register</a>
         </div>
     </div>
 </div>
