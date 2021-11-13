@@ -8,8 +8,7 @@ use Illuminate\Support\Facades\Route;
 /**********************/
 /* Application Routes */
 /**********************/
-Route::get('/', [HomeController::class, "IndexWelcome"]);
-Route::get('/home', [HomeController::class, "IndexHome"]);
+Route::get('/', [HomeController::class, "IndexHome"]);
 Route::get('/login', [LocalAuthController::class, "LoginIndex"]);
 Route::get('/register', [LocalAuthController::class, "RegisterIndex"]);
 

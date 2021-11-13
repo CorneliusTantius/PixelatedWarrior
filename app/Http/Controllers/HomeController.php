@@ -15,6 +15,6 @@ class HomeController extends Controller
             // The user is logged in...
             return view('Pages/home', ["title"=>"Home"]);
         }
-        self::IndexWelcome();
+        return self::IndexWelcome();
     }
 }
