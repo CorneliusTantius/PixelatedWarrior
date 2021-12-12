@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Mockery\QuickDefinitionsConfiguration;
 
 class GameController extends Controller
@@ -50,9 +52,17 @@ class GameController extends Controller
     public function handleQuizAnswer(Request $request, $x){
         $ans = $request->all()["opt"];
         if($ans == $x){
+            $user = User::find(Auth::user()->id);
+            $user->max++;
+            $user->credits += 3;
+            $user->update();
             return $this->IndexGame("Received Max Point");
         }
         else{
+            $user = User::find(Auth::user()->id);
+            $user->min++;
+            $user->credits += 1;
+            $user->update();
             return $this->IndexGame("Received Min Point");
         }
         

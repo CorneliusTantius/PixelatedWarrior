@@ -2,14 +2,17 @@
 
 use App\Http\Controllers\Auth\GoogleAuthController;
 use App\Http\Controllers\Auth\LocalAuthController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MiscController;
 use Illuminate\Support\Facades\Route;
 
 /**********************/
 /* Application Routes */
 /**********************/
 Route::get('/', [HomeController::class, "IndexHome"]);
+Route::get('/home', [HomeController::class, "IndexHome"]);
 Route::get('/login', [LocalAuthController::class, "IndexLogin"]);
 Route::get('/register', [LocalAuthController::class, "IndexRegister"]);
 
@@ -20,6 +23,12 @@ Route::get('/auth/google/callback', [GoogleAuthController::class, "handleGoogleC
 Route::get('/game', [GameController::class, "IndexGame"]);
 /* Game API Routes */
 Route::post('/answer/send/{x}', [GameController::class, "handleQuizAnswer"]);
+
+/* Standard Routes */
+Route::get("/dashboard", [DashboardController::class, "IndexDashboard"]);
+Route::get("/about", [MiscController::class, "IndexAbout"]);
+Route::get("/faq", [MiscController::class, "IndexFaq"]);
+
 
 /***************/
 /*  API Routes */

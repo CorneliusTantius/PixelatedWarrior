@@ -18,12 +18,16 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->integer('age')->default(0);
             $table->string('email')->unique();
+            $table->string('image')->default("default.png");
             $table->timestamp('email_verified_at')->nullable();
             $table->string('google_id')->nullable();
             $table->string('password');
             $table->boolean('is_admin')->default(false);
             $table->rememberToken();
             $table->timestamps();
+            $table->integer('credits')->default(0);
+            $table->integer('max')->default(0);
+            $table->integer('min')->default(0);
         });
     }
 
