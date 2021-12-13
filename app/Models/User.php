@@ -26,7 +26,10 @@ class User extends Authenticatable
         'password',
         'credits',
         'max',
-        'min'
+        'min',
+        'xp',
+        'level',
+        'combat_power'
     ];
 
     /**

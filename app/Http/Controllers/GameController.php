@@ -54,14 +54,14 @@ class GameController extends Controller
             $user->max++;
             $user->credits += 3;
             $user->update();
-            return $this->IndexGame("Received Max Point");
+            return redirect()->to("/game/1");
         }
         else{
             $user = User::find(Auth::user()->id);
             $user->min++;
             $user->credits += 1;
             $user->update();
-            return $this->IndexGame("Received Min Point");
+            return redirect()->to("/game/0");
         }
         
     }

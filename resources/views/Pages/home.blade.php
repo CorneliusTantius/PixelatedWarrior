@@ -1,6 +1,6 @@
 @extends('Layouts.main')
 @section('content')
-<div class="px-4 py-5 my-3 text-center">
+<div class="px-5 py-3 my-3 text-center">
     <img class="d-block mx-auto" src="{{ URL::asset('vectors/knight.png') }}" alt="" width="82">
     <h1 class="display-5 fw-bold">Pixelated Warrior</h1>
     <div class="col-lg-6 mx-auto">

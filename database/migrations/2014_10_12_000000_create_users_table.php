@@ -28,6 +28,9 @@ class CreateUsersTable extends Migration
             $table->integer('credits')->default(0);
             $table->integer('max')->default(0);
             $table->integer('min')->default(0);
+            $table->integer('xp')->default(0);
+            $table->integer('level')->default(0);
+            $table->integer('combat_power')->default(1);
         });
     }
 

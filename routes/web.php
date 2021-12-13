@@ -21,6 +21,7 @@ Route::get('/auth/google/callback', [GoogleAuthController::class, "handleGoogleC
 
 /* Game Routes */
 Route::get('/game', [GameController::class, "IndexGame"]);
+Route::get('/game/{prev}', [GameController::class, "IndexGame"]);
 /* Game API Routes */
 Route::post('/answer/send/{x}', [GameController::class, "handleQuizAnswer"]);
 

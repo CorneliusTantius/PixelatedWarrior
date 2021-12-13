@@ -1,6 +1,6 @@
 @extends('Layouts.main')
 @section('content')
-    <div class="px-4 py-5 my-3 text-center">
+    <div class="px-5 py-3 my-2 text-center">
         {{-- <img class="d-block mx-auto" src="{{ URL::asset('vectors/vec-1.png') }}" alt="" width="82"> --}}
         <h1 class="display-5 fw-bold">Pixel Sus Rush!</h1>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center my-2 align-items-center">
@@ -9,8 +9,13 @@
             <img class="d-block mx-3" src="{{ URL::asset('vectors/sus-l.png') }}" alt="" width="100">
         </div>
         <div class="col-lg-6 mx-auto">
-            @if ($prev)
-                <p style="color:red;">Previous Round: {{$prev}}</p>
+            @if ($prev != null)
+                @if ($prev == 1)
+                    <p>Previous Round: Received <span style="color: green;">Maximum</span> Point</p>
+                @endif
+                @if ($prev == 0)
+                    <p>Previous Round: Received <span style="color: red;">Minimum</span> Point</p>
+                @endif
             @endif
             @if ($isQuiz == false)
                 <p>Failed to load battle!</p>
@@ -30,8 +35,9 @@
                                     </label>
                                 </div>
                             @endfor
-                            <button class="btn btn-success" type="submit">Submit</button>
+                            <button class="btn btn-success my-1" style="width: 20%;" type="submit">Submit</button>
                         </form>
+                        <a type="button" class="btn btn-secondary my-3" style="width: 20%;" href="/">Go Back</a>
                     </div>
                 </div>
             @endif
