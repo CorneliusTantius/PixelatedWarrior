@@ -29,6 +29,8 @@ Route::post('/answer/send/{x}', [GameController::class, "handleQuizAnswer"]);
 Route::get("/dashboard", [DashboardController::class, "IndexDashboard"]);
 Route::get("/about", [MiscController::class, "IndexAbout"]);
 Route::get("/faq", [MiscController::class, "IndexFaq"]);
+/* Standard API Routes */
+Route::post("/dashboard/update/image", [DashboardController::class, "UpdatePicture"]);
 
 
 /***************/

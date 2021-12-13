@@ -4,8 +4,13 @@
     <div class="container d-flex justify-content-center align-items-center">
         <div class="card px-3 py-3">
             <div class="user text-center">
-                <div class="profile"> <img src="{{Storage::url(Auth::user()->image)}}"" class="rounded-circle" width="200"> </div>
-                <button class="btn btn-secondary btn-sm follow">Change</button>
+                <div class="profile mb-3"> <img src="{{Storage::url(Auth::user()->image)}}"" class="rounded-circle" width="200"> </div>
+                
+                <form action="/dashboard/update/image" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input class="form-control form-control-sm" type="file" id="image" name="image">
+                    <button class="btn btn-secondary btn-sm follow mt-3">Change</button>
+                </form>
             </div>
             <div class="mt-5 text-center">
                 <h4 class="mb-0">{{Auth::user()->name}}</h4> 
