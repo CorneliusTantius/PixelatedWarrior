@@ -1,6 +1,6 @@
 @extends('Layouts.main')
 @section('content')
-<div class="px-4 py-5 my-5 text-center">
+<div class="px-4 py-5 my-3 text-center">
     <div class="container d-flex justify-content-center align-items-center">
         <div class="card px-3 py-3">
             <div class="user text-center">

@@ -13,8 +13,6 @@ class GameController extends Controller
     public function IndexGame($prev=null){
         $quiz = $this->GenerateQuiz();
         if($quiz){
-            $quiz = $quiz["results"][0];
-            $question = $quiz["question"];
             $answers = null;
             $correctAnswer = null;
             if($quiz["type"] == "boolean"){
@@ -67,19 +65,29 @@ class GameController extends Controller
         }
         
     }
-    public static function GenerateQuiz($difficulty = 1){
+    public static function GenerateQuiz($difficulty = 4){
         try{
             // type either boolean or multiple
             $curl = curl_init();
-            $base_url = "https://opentdb.com/api.php?amount=1&category=18&difficulty=";
-            if($difficulty == 1) $base_url = $base_url."easy";
-            else if($difficulty == 2) $base_url = $base_url."medium";
-            else if($difficulty == 3) $base_url = $base_url."hard";
+            $base_url = "https://opentdb.com/api.php?amount=1&encode=base64&category=18";
+            if($difficulty == 1) $base_url = $base_url."&difficulty=easy";
+            else if($difficulty == 2) $base_url = $base_url."&difficulty=medium";
+            else if($difficulty == 3) $base_url = $base_url."&difficulty=hard";
             curl_setopt($curl, CURLOPT_URL, $base_url);
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
             $output = curl_exec($curl);
             curl_close($curl);
             $output = json_decode($output, true);
+            $output = $output["results"][0];
+            $output["category"] = base64_decode($output["category"]);
+            $output["type"] = base64_decode($output["type"]);
+            $output["difficulty"] = base64_decode($output["difficulty"]);
+            $output["question"] = base64_decode($output["question"]);
+            $output["correct_answer"] = base64_decode($output["correct_answer"]);
+            $cnt = count($output["incorrect_answers"]);
+            for($i=0; $i<$cnt; $i++){
+                $output["incorrect_answers"][$i] = base64_decode($output["incorrect_answers"][$i]);
+            }
             return $output;
         }
         catch(Exception $e){

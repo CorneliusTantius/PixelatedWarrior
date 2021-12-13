@@ -1,8 +1,13 @@
 @extends('Layouts.main')
 @section('content')
-    <div class="px-4 py-5 my-5 text-center">
+    <div class="px-4 py-5 my-3 text-center">
         {{-- <img class="d-block mx-auto" src="{{ URL::asset('vectors/vec-1.png') }}" alt="" width="82"> --}}
-        <h1 class="display-5 fw-bold">Pixel Rush!</h1>
+        <h1 class="display-5 fw-bold">Pixel Sus Rush!</h1>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center my-2 align-items-center">
+            <img class="d-block mx-3" src="{{ URL::asset('vectors/knight-2.png') }}" alt="" width="100">
+            <img class="d-block mx-5" src="{{ URL::asset('vectors/swords.png') }}" alt="" height="40">
+            <img class="d-block mx-3" src="{{ URL::asset('vectors/sus-l.png') }}" alt="" width="100">
+        </div>
         <div class="col-lg-6 mx-auto">
             @if ($prev)
                 <p style="color:red;">Previous Round: {{$prev}}</p>
