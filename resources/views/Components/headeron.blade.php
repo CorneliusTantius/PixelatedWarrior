@@ -5,8 +5,10 @@
         </a>
 
         <ul class="nav nav-pills">
-            <li class="nav-item"><a href="/game" class="nav-link active" aria-current="page">Play</a></li>
-            <li class="nav-item"><a href="/dashboard" class="nav-link">My Account</a></li>
+            @if (Auth::user()->is_admin == false)
+                <li class="nav-item"><a href="/game" class="nav-link active" aria-current="page">Play</a></li>
+                <li class="nav-item"><a href="/dashboard" class="nav-link">My Account</a></li>
+            @endif
             <li class="nav-item"><a href="/faq" class="nav-link">FAQs</a></li>
             <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
             <li class="nav-item"><a href="/auth/logout" class="nav-link">Log Out</a></li>
