@@ -2,6 +2,8 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\RedirectIfNotAdmin;
+use App\Http\Middleware\RedirectIfNotCustomer;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel

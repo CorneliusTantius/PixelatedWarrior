@@ -19,10 +19,10 @@
                             <td>{{ $user->id }}</td>
                             <td>{{ $user->name }}</td>
                             <td>
-                                <a href="/admin/user/details/{{ $user->id }}" class="btn">Details</a>
+                                <a href="/admin/user/details/{{ $user->id }}" class="btn btn-success">Details</a>
                             </td>
                             <td>
-                                <a href="/api/user/delete/{{ $user->id }}" class="btn btn-danger">Delete</a>
+                                <a href="/admin/user/delete/{{ $user->id }}" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     @endforeach

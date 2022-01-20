@@ -17,7 +17,6 @@ class HomeController extends Controller
         if (Auth::check()) {
             if (Auth::user()->is_admin == true) {
                 $users = User::where(['is_admin' => false])->get();
-                dd($users);
                 return view('Pages/Admin/manage', ["title" => "Admin Home", "users" => $users]);
             }
             // The user is logged in...

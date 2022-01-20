@@ -30,7 +30,7 @@ Route::get("/about", [MiscController::class, "IndexAbout"]);
 Route::get("/faq", [MiscController::class, "IndexFaq"]);
 
 /* Admin Routes */
-Route::get("/admin/user/details/{$id}", [HomeController::class, "IndexAdminDetails"]);
+Route::get("/admin/user/details/{id}", [HomeController::class, "IndexAdminDetails"]);
 
 /***************/
 /*  API Routes */
@@ -43,4 +43,4 @@ Route::post('/answer/send/{x}', [GameController::class, "handleQuizAnswer"]);
 /* Standard API Routes */
 Route::post("/dashboard/update/image", [DashboardController::class, "UpdatePicture"]);
 
-Route::get("/user/delete/{id}", [HomeController::class, "DeleteUser"]);
+Route::get("/admin/user/delete/{id}", [HomeController::class, "DeleteUser"]);
